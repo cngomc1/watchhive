@@ -1,0 +1,35 @@
+<div class="flex h-screen w-screen">
+  <!-- Partie gauche -->
+  <div class="w-1/2 bg-yellow-400 flex items-center justify-center rounded-l-3xl relative overflow-hidden">
+    <!-- Ligne sinusoïdale verticale -->
+    <svg class="absolute left-full transform -translate-x-1/2 h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M0,0 Q50,50 0,100" stroke="black" stroke-dasharray="5,5" fill="transparent"/>
+    </svg>
+    <!-- Abeille animée sur la ligne -->
+    <div class="absolute left-full animate-bounce">
+      🐝
+    </div>
+  </div>
+
+  <!-- Partie droite -->
+  <div class="w-1/2 bg-white flex flex-col items-center justify-center rounded-r-3xl p-10">
+    <!-- Logo + description -->
+    <div class="mb-8 text-center">
+      <h1 class="text-3xl font-bold">Nom App</h1>
+      <p class="text-gray-600">Description de l'application ici</p>
+    </div>
+
+    <!-- Formulaire -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="w-full max-w-sm space-y-4">
+      <input formControlName="email" type="email" placeholder="Email"
+             class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"/>
+      <input formControlName="password" type="password" placeholder="Password"
+             class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"/>
+      <button type="submit" [disabled]="loading"
+              class="w-full bg-yellow-400 text-white py-3 rounded-lg hover:bg-yellow-500 transition">
+        {{ loading ? 'Loading...' : 'Login' }}
+      </button>
+      <div class="text-red-500 text-sm" *ngIf="errorMessage">{{ errorMessage }}</div>
+    </form>
+  </div>
+</div>
