@@ -1,0 +1,32 @@
+<div class="bg-white p-4 rounded shadow space-y-4">
+  <h3 class="text-lg font-semibold">Paramètres d'alertes</h3>
+
+  <div *ngFor="let a of attrs" class="flex items-center justify-between border-b py-3">
+    <div>
+      <!-- <div class="font-medium">{{ a.label }}</div> -->
+      <div class="text-sm text-gray-500">{{ a.name }}</div>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <label class="flex items-center gap-2">
+        <input type="checkbox" [(ngModel)]="a.enabled" />
+        Enabled
+      </label>
+
+      <div *ngIf="a.enabled" class="flex gap-2 items-center">
+        <input type="number" [(ngModel)]="a.min" placeholder="min" class="border p-1 rounded w-20" />
+        <input type="number" [(ngModel)]="a.max" placeholder="max" class="border p-1 rounded w-20" />
+      </div>
+      <div *ngIf="!a.enabled" class="text-gray-400">disabled</div>
+    </div>
+  </div>
+
+  <div class="flex justify-between items-center mt-4">
+    <a routerLink="/alert-history" class="text-blue-600">Historique des alertes</a>
+
+    <div>
+      <button (click)="cancel()" class="mr-2 px-4 py-2 border rounded">Annuler</button>
+      <button (click)="save()" class="px-4 py-2 bg-yellow-600 text-white rounded">Enregistrer</button>
+    </div>
+  </div>
+</div>

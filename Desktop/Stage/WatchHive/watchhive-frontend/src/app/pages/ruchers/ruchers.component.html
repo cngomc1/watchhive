@@ -1,0 +1,28 @@
+<div class="bg-white p-4 rounded shadow">
+  <h3 class="text-lg font-semibold mb-3">Ruchers</h3>
+
+  <table class="w-full text-left">
+    <thead class="text-sm text-gray-600">
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Localisation</th>
+        <th>Nb ruches</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of ruchers" class="border-t">
+        <td>{{ r.id }}</td>
+        <td>{{ r.name }}</td>
+        <td>{{ r.location }}</td>
+        <td>{{ r.nbRuches || 0 }}</td>
+        <td class="flex flex-col gap-2">
+          <button class="text-red-600" (click)="deleteRucher(r.id)">Supprimer</button>
+          <button class="text-yellow-600" (click)="editRucher(r.id)">Modifier</button>
+          <button class="text-blue-600" (click)="goDetail(r.id)">Voir plus</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

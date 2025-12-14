@@ -1,0 +1,8 @@
+/* si Tailwind est actif, ces directives sont normalement déjà présentes */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* petites règles utiles */
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+#map { height: 100%; }

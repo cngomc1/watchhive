@@ -25,8 +25,8 @@ import time
 import random
 
 # Configuration
-API_URL = "http://localhost:3000/mesures" # Adresse de ton API locale
-DELAY_SECONDS = 100  # On met 10 sec pour le test (au lieu de 15min)
+API_URL = "http://localhost:3000/readings" # Adresse de ton API locale
+DELAY_SECONDS = 15  # On met 10 sec pour le test (au lieu de 15min)
 
 def generer_donnees_capteurs():
     """

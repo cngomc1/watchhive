@@ -1,0 +1,47 @@
+<div class="space-y-4">
+  <!-- cards -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-white p-4 rounded shadow">
+      <div class="text-sm text-gray-500">Nombre de ruches</div>
+      <div class="text-2xl font-bold">{{ totalRuches }}</div>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <div class="text-sm text-gray-500">Nombre de ruchers</div>
+      <div class="text-2xl font-bold">{{ totalRuchers }}</div>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <div class="text-sm text-gray-500">Autres stats</div>
+      <div class="text-2xl font-bold">—</div>
+    </div>
+  </div>
+
+  <!-- alerte banner -->
+  <div *ngIf="hasAlert" class="bg-red-100 border-l-4 border-red-500 p-3 text-red-800 rounded">
+    ⚠️ Alerte active — vérifier immédiatement
+  </div>
+
+  <!-- map -->
+  <div class="bg-white p-3 rounded shadow">
+    <div class="flex items-center justify-between mb-2">
+      <div class="font-semibold">Carte des ruchers</div>
+
+      <div class="flex items-center gap-3">
+        <label class="flex items-center gap-2"><input type="radio" name="mapView" (click)="setMapView('ruchers')" checked> Ruchers</label>
+        <label class="flex items-center gap-2"><input type="radio" name="mapView" (click)="setMapView('ruches')"> Ruches</label>
+      </div>
+    </div>
+
+    <div id="map" class="w-full h-72 rounded"></div>
+
+    <div class="mt-3 flex items-center gap-4">
+      <div class="flex items-center gap-2"><div class="w-6">🐝</div><div>Rucher</div></div>
+      <div class="flex items-center gap-2"><div class="w-6">🏠</div><div>Ruche</div></div>
+    </div>
+  </div>
+
+  <!-- chart -->
+  <div class="bg-white p-3 rounded shadow">
+    <div class="font-semibold mb-2">Évolution du poids total</div>
+    <canvas id="weightChart"></canvas>
+  </div>
+</div>
